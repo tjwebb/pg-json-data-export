@@ -33,7 +33,7 @@ exporter.toJSON(connection, 'public')
 `connection` | connection string or object compatible with [`pg`](https://github.com/brianc/node-postgres)
 `schema` | the database schema to export
 | **@return** | **description**
-`dump` | dump of all tables in database schema<br/>`{ table1: { rows: [ { /* ... */ } ] } }`
+`Object` | dump of all tables in database schema<br/>`{ table1: { rows: [ { /* ... */ } ] } }`
 
 ## License
 MIT
