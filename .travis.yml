@@ -25,19 +25,11 @@ before_script:
   - time pg_restore -e -d test postbooks_demo_460.backup
 
 deploy:
-  - provider: npm
-    email: me@traviswebb.com
-    api_key:
-      secure: GFqlwAEvvw/tmlH0kK5LekYuI1RtCc92RArr4IQ5cSK8av9VQExDtOCq3YpU5p6eTiZRTkgv58MXWQmf7/nCi0NPbJyyiCvr0ewmOKlYdWlyyvyU0LTkxjixjEsksXyaN9KaLXe+Zg+QzsHn0lVGFkDAv2xcTd/1vT8/sqZHoK8=
-    on:
-      tags: true
-      repo: tjwebb/pg-json-data-export
-      all_branches: true
-  - provider: releases
-    api_key:
-      secure: GghGojfPthF4XPSyYdQ7nRKIK5Q9lpmrRhJ0zzWGx8cS8o+KxFZ7BgMFXr2Xm9OhZBCDtJJ0YVSJ9Kx2QtOrsU4TG86gkZUR2v7DLd+vRfqYP4kYMe1NsG8ndrWzKGIQnroPi4cDg7H+O+0eGfNzE8hl6l43FD5TJyHsZfnEkLE=
-    file: build/postbooks_demo_460_data.json
-    on:
-      repo: tjwebb/pg-json-data-export
-      all_branches: true
-      tags: true
+  provider: npm
+  email: me@traviswebb.com
+  api_key:
+    secure: GFqlwAEvvw/tmlH0kK5LekYuI1RtCc92RArr4IQ5cSK8av9VQExDtOCq3YpU5p6eTiZRTkgv58MXWQmf7/nCi0NPbJyyiCvr0ewmOKlYdWlyyvyU0LTkxjixjEsksXyaN9KaLXe+Zg+QzsHn0lVGFkDAv2xcTd/1vT8/sqZHoK8=
+  on:
+    tags: true
+    repo: tjwebb/pg-json-data-export
+    all_branches: true
