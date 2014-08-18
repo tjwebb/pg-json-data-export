@@ -2,6 +2,7 @@ var fs = require('fs');
 var assert = require('assert');
 var _ = require('lodash');
 var exporter = require('./');
+var util = require('util');
 
 describe('pg-json-schema-export', function () {
   var options = {
@@ -12,7 +13,7 @@ describe('pg-json-schema-export', function () {
   };
 
   describe('#toJSON', function () {
-    this.timeout(process.env.TRAVIS ? 60 * 1000 : 20000);
+    this.timeout(300 * 1000); // 5 minutes
 
     var db;
     before(function (done) {

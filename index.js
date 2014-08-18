@@ -1,5 +1,6 @@
 'use strict';
 
+var Promise = require('bluebird');
 var _ = require('lodash');
 var fs = require('fs');
 
@@ -16,11 +17,15 @@ exports.toJSON = function (connection, schema) {
 
   return getTables(knex, schema)
     .map(function (table) {
-      return knex.select('*').from(table.table_name);
+      return knex.select('*').from(table.table_name)
+        .then(function (rows) {
+          return {
+            table: table.table_name,
+            rows: rows
+          };
+        });
     })
     .then(function (tables) {
-      console.log(tables);
-      process.exit(0);
+      return _.indexBy(tables, 'table');
     });
-
 };
