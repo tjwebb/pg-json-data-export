@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/tjwebb/pg-json-data-export/issues"
   },
-  "homepage": "https://github.com/tjwebb/pg-json-data-export"
+  "homepage": "https://github.com/tjwebb/pg-json-data-export",
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
 }
