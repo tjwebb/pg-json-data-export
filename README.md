@@ -14,7 +14,28 @@ $ npm install pg-json-data-export --save
 
 ## Usage
 
+```js
+var exporter = require('pg-json-data-export');
+var connection = {
+  // pg connections object
+};
+exporter.toJSON(connection, 'public')
+  .then(function (dump) {
+    console.log(dump.table1.rows);
+  });
+```
+
 ## API
+
+#### `.toJSON (connection, schema)`
+| @param | description
+|:---|:---|
+`connection` | connection string or object compatible with [`pg`](https://github.com/brianc/node-postgres)
+`schema` | the database schema to export
+
+| @return | description
+|:---|:---|
+`dump` | dump of all tables in database schema<br/>`{ table1: { rows: [ { /* ... */ } ] } }`
 
 ## License
 MIT
