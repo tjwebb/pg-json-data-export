@@ -4,7 +4,7 @@ var _ = require('lodash');
 var exporter = require('./');
 var util = require('util');
 
-describe('pg-json-schema-export', function () {
+describe('pg-json-data-export', function () {
   var options = {
     user: process.env.POSTGRES_USER || 'postgres',
     password: process.env.POSTGRES_PASSWORD || 'postgres',
@@ -29,6 +29,10 @@ describe('pg-json-schema-export', function () {
       fs.writeFileSync('build/postbooks_demo_460_data.json', JSON.stringify(db, null, 2));
     });
 
+    it('should contain lots of data', function () {
+      var str = JSON.stringify(db);
+      assert(str.length > 1048576); // 1mb
+    });
   });
 
 });
