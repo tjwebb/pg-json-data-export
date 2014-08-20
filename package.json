@@ -1,6 +1,6 @@
 {
   "name": "pg-json-data-export",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Export a Postgres database as JSON",
   "main": "index.js",
   "scripts": {
