@@ -34,5 +34,4 @@ describe('pg-json-data-export', function () {
       assert(str.length > 1048576); // 1mb
     });
   });
-
 });
