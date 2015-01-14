@@ -23,6 +23,10 @@ exports.toJSON = function (connection, schema) {
             table: table.table_name,
             rows: _.map(rows, function (row) {
               return _.mapValues(row, function (value, key) {
+                if (_.isArray(value)) {
+                  return "'" + new Buffer(value).toString('hex') + "'::bytea";
+                }
+
                 return value;
               });
             })
