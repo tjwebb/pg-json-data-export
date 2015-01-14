@@ -21,7 +21,11 @@ exports.toJSON = function (connection, schema) {
         .then(function (rows) {
           return {
             table: table.table_name,
-            rows: rows
+            rows: _.map(rows, function (row) {
+              return _.mapValues(row, function (value, key) {
+                return value;
+              });
+            })
           };
         });
     })
